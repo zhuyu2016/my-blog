@@ -6,6 +6,7 @@
     <link href="style.css" type="text/css" rel="stylesheet"/>
     <link href="flexbox.css" type="text/css" rel="stylesheet" />
     <script rel="script" type="application/javascript" src="js/scrollFunc.js"></script>
+    <script src=”http://leaverou.github.com/prefixfree/prefixfree.min.js”></script>
 </head>
 <body>
 <div class="wrapper">
@@ -25,7 +26,7 @@
             <li class="nav-list-item"><a href="">关于</a></li>
         </ul>
     </nav>
-    <header style="background-size: auto;flex: 1">
+    <header style="background-size: auto;flex: 1;-webkit-box-flex: 1;-moz-box-flex: 1; -ms-flex: 1;  ">
 
     </header>
 
@@ -51,7 +52,7 @@
 
     <!-- 获取当前视口宽度 -->
     <script>
-        var mql = window.matchMedia("(min-width:960px)");
+        var mql = window.matchMedia("(min-width:480px)");
         mql.addListener(mediaChangeHandler);
         mediaChangeHandler(mql);
         function mediaChangeHandler(mql) {
@@ -70,7 +71,7 @@
         }
     </script>
     <footer>
-        <p>© 2017 NO RIGHTS RESERVED.&nbsp;&nbsp;DESIGN BY ZHUYU.</p>
+        <p>© 2017 NO RIGHTS RESERVED.&nbsp;&nbsp;&nbsp;DESIGN BY ZHUYU.</p>
     </footer>
 
 </div>
