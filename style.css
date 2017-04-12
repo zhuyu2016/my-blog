@@ -1,15 +1,18 @@
 
 html, body {
     margin: 0;
-    font: normal 16px 'Microsoft YaHei',“微软雅黑”, 'Open Sans', sans-serif;
+    font: normal 62.5% 'Microsoft YaHei',“微软雅黑”, 'Open Sans', sans-serif;
+    font-weight: 300;
 }
 ul {
     margin: 0;
     padding: 0;
+    font-size: 1.6em;
 }
 a {
     text-decoration: none;
     color: white;
+    font-size: 1.6em;
 
 }
 
@@ -90,6 +93,8 @@ header{
     background-repeat: no-repeat;
     background-size: 100%;
     min-height: 20vh;
+    font-size: 7em;
+
 }
 main{
     background-color:#ededed;
@@ -99,16 +104,25 @@ main{
     display: flex;
     flex-direction: column;
     flex:1;
+    font-size: 2.0em;
+    line-height: 2em;
+}
+.main-title{
+    text-align: left;
+    font-size:1.8em;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 footer{
     background-color: black;
-    color: rgb(192, 192, 192);
     text-align: center;
+    font-size: 1em;
 
 }
 footer p{
-    font-size: 10px;
-    padding: 15px 0;
+    font-size: 0.8em;
+    padding: 10px 0;
+    color:  #D5D5D5;
 }
 
 
@@ -145,6 +159,7 @@ footer p{
         color: white;
         height:400px;/*fallback*/
         /* height: 80vh;*/
+        font-size: 9em;
 
         display:-webkit-box;
         display: -moz-box;
@@ -160,7 +175,7 @@ footer p{
         background-repeat: no-repeat;
     }
     main{
-
+        font-size: 2.2em;
     }
 
     main p{
@@ -181,6 +196,9 @@ footer p{
     .nav-list-item a {
         display: block;
         min-width: 48px;
+        margin:0;
+        padding: 19px 40px;
+
     }
     .nav-list-item a:hover{
         color: #D5D5D5;
@@ -225,12 +243,7 @@ footer p{
         color: white;
         height:400px;/*fallback*/
         /* height: 80vh;*/
-
-        display:-webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
+        font-size: 9em;
 
         -moz-box-flex: 1; /* FireFox */
         justify-content: center;
@@ -240,7 +253,7 @@ footer p{
         background-repeat: no-repeat;
     }
     main{
-
+        font-size: 2.6em;
     }
 
     main p{
@@ -260,6 +273,9 @@ footer p{
 
     .nav-list-item a {
         display: block;
+        margin:0;
+        padding: 19px 40px;
+        font-size: 1.6em;
     }
     .nav-list-item a:hover{
         color: #D5D5D5;
@@ -267,4 +283,5 @@ footer p{
     .menu-btn{
         display: none;
     }
+
 }
