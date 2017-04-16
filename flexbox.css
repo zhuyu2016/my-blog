@@ -16,6 +16,14 @@
     flex-direction: row;
 }
 
+/* 子元素竖向排列 */
+.flex-column{
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: column;
+    -ms-flexbox-direction:column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
 
 /* 子元素平均分布在父容器中 */
 .flex-justify-space-around{
@@ -31,4 +39,9 @@
     -moz-box-flex: 1;
     -ms-flex: 1;
     -webkit-flex: 1;
+}
+
+/* 当子元素无法容纳时自动换行 */
+.flex-wrap{
+    flex-wrap: wrap;
 }

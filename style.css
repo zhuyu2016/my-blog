@@ -88,21 +88,19 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("./img/wallpaper.jpg");
-    background-position: 50% 0;
-    background-repeat: no-repeat;
+    background: url("./img/wallpaper.jpg")  no-repeat 50% 0 ;
     background-size: 100%;
     min-height: 20vh;
     font-size: 7em;
 
 }
+
 main{
     background-color:#ededed;
     height: auto;
     padding: 40px;
     color: #424242;
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex:1;
     font-size: 2.0em;
     line-height: 2em;
@@ -113,16 +111,25 @@ main{
     font-weight: 500;
     margin-bottom: 20px;
 }
+.main-photography{
+    width: 250px;
+    height:250px;
+    margin: auto 40px;
+    margin-bottom: 40px;
+    background-color: blueviolet;
+    flex-shrink: 0;
+
+
+}
 footer{
     background-color: black;
     text-align: center;
-    font-size: 1em;
-
 }
 footer p{
-    font-size: 0.8em;
     padding: 10px 0;
     color:  #D5D5D5;
+
+    font-size: 1.5em;
 }
 
 
