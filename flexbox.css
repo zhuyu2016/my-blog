@@ -33,6 +33,15 @@
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
 }
+/* 子元素居中分布在父容器中 */
+.flex-justify-center{
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack:justify;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+}
+
 /* flex:1 */
 .flex-one{
     flex: 1;
