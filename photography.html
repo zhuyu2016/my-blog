@@ -18,31 +18,67 @@
         </div>
 
         <ul class="nav-container-list ">
-            <li class="nav-list-item"><a href="article.html">文字</a></li>
-            <li class="nav-list-item"><a href="photography.html">相片</a></li>
-            <li class="nav-list-item"><a href="">一件事</a></li>
+            <li class="nav-list-item"><a href="./index.html">首页</a></li>
+            <li class="nav-list-item"><a href="./article.html">文字</a></li>
+            <li class="nav-list-item"><a href="./photography.html">相片</a></li>
             <li class="nav-list-item"><a href="">关于</a></li>
         </ul>
     </nav>
-    <header>
+    <header class="flex-enable">
         <p >相片</p>
     </header>
 
-    <main class="flex-enable flex-justify-center flex-wrap">
+    <!-- 点击图片放大 -->
+    <script>
+        function expandPhoto() {
+            var overlay = document.createElement("div");
+            overlay.setAttribute("id","overlay");    //用于标识覆盖层
+            overlay.setAttribute("class","overlay"); //用于添加覆盖层的样式
+            document.body.appendChild(overlay);
+
+            var img =document.createElement("img");
+            img.setAttribute("class","overlay-img");
+            img.src = this.getAttribute("src");
+            document.getElementById("overlay").appendChild(img);
+
+            img.onclick= restore;
+        }
+
+        function restore(){
+            document.body.removeChild(document.getElementById("overlay"));
+            document.body.removeChild(document.getElementById("img"));
+        }
+
+        window.onload = function(){
+            var imgs = document.getElementsByTagName("img");
+            imgs[0].focus();
+            for(var i = 0;i<imgs.length;i++){
+                imgs[i].onclick = expandPhoto;
+                imgs[i].onkeydown = expandPhoto;
+            }
+
+        }
+
+
+
+
+    </script>
+    
+    <main class="flex-enable flex-justify-space-around flex-wrap">
         <div class="main-photography">
-1
+            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
         </div>
         <div class="main-photography">
-2
+            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
         </div>
         <div class="main-photography">
-3
+            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
         </div>
         <div class="main-photography">
-4
+            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
         </div>
         <div class="main-photography">
-5
+            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
         </div>
     </main>
 
