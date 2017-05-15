@@ -4,7 +4,6 @@
     display: -webkit-box;   /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
     display: flex;          /* 新版本语法: Opera 12.1, Firefox 22+ */
 
-    display: -moz-box;      /* 老版本语法: Firefox (buggy) */
     display: -ms-flexbox;   /* 混合版本语法: IE 10 */
 }
 
