@@ -1,3 +1,9 @@
+<?
+include 'conn.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +11,9 @@
     <title>ZHUYU</title>
     <link href="./style.css" type="text/css" rel="stylesheet"/>
     <link href="./flexbox.css" type="text/css" rel="stylesheet" />
-    <script rel="script" type="application/javascript" src="./js/errIEbrowser.js"></script>
+    <!--<script rel="script" type="application/javascript" src="./js/errIEbrowser.js"></script>-->
     <script rel="script" type="application/javascript" src="./js/scrollFunc.js"></script>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
     <style>
 
     </style>
@@ -18,21 +25,34 @@
         <div class="menu-btn">
             <a href="javascript:void (0)" class="menu-btn-icon btn-icon-menu"></a>
 
-            <a  class="menu-btn-icon menu-title"  href="index.html"></a>
+            <a  class="menu-btn-icon menu-title"  href="index.php"></a>
             <div class="clearfix"></div>
         </div>
 
         <ul class="nav-container-list ">
-            <li class="nav-list-item"><a href="./index.html">首页</a></li>
-            <li class="nav-list-item"><a href="./article.html">文字</a></li>
-            <li class="nav-list-item"><a href="./photography.html">相片</a></li>
-            <li class="nav-list-item"><a href="">关于</a></li>
+            <li class="nav-list-item"><a href="index.php">首页</a></li>
+            <li class="nav-list-item"><a href="#">插入文字</a></li>
+            <li class="nav-list-item"><a href="#">插入图片</a></li>
         </ul>
     </nav>
-    <header style="background-size: auto;" class="flex-enable flex-one" >
 
-    </header>
-
+    <main class="" style="padding:40px 2px">
+        <div class="art-input">
+            <p class="cms-title">插入文字</p>
+            <form>
+                <textarea rows="30" cols="50" name="editor01"></textarea>
+                <script type="text/javascript">CKEDITOR.replace('editor01');</script>
+                <button type="submit" class="button">提交</button>
+            </form>
+        </div>
+        <div class="img-input">
+            <p class="cms-title">插入图片</p>
+            <form>
+                <div id="upload-img"></div>
+                <button type="submit" class="button">提交</button>
+            </form>
+        </div>
+    </main>
     <!-- menu展开,缩放按钮脚本 -->
     <script>
 

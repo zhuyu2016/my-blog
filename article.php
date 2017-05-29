@@ -16,15 +16,15 @@
         <!-- menu展开,缩放按钮 -->
         <div class="menu-btn">
             <a href="javascript:void (0)" class="menu-btn-icon btn-icon-menu"></a>
-            <a  class="menu-btn-icon menu-title"  href="index.html"></a>
+            <a  class="menu-btn-icon menu-title"  href="index.php"></a>
             <div class="clearfix"></div>
         </div>
 
         <ul class="nav-container-list ">
-            <li class="nav-list-item"><a href="./index.html">首页</a></li>
-            <li class="nav-list-item"><a href="./article.html">文字</a></li>
-            <li class="nav-list-item"><a href="./photography.html">相片</a></li>
-            <li class="nav-list-item"><a href="">关于</a></li>
+            <li class="nav-list-item"><a href="./index.php">首页</a></li>
+            <li class="nav-list-item"><a href="./article.php">文字</a></li>
+            <li class="nav-list-item"><a href="./photography.php">相片</a></li>
+            <li class="nav-list-item"><a href="./cms.php">关于</a></li>
         </ul>
     </nav>
 
