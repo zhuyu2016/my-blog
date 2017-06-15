@@ -10,4 +10,4 @@ if(!$conn)
 {
     die('Could not connect:'. mysqli_error());
 }
-mysqli_query($conn,"set names 'utf8'");
+$conn ->set_charset('utf-8');

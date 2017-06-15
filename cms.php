@@ -31,35 +31,62 @@ include 'conn.php';
 
         <ul class="nav-container-list ">
             <li class="nav-list-item"><a href="index.php">首页</a></li>
-            <li class="nav-list-item"><a href="#">插入文字</a></li>
-            <li class="nav-list-item"><a href="#">插入图片</a></li>
+            <li class="nav-list-item" id="nav-list-art"><a href="javascript:void (0)">插入文字</a></li>
+            <li class="nav-list-item" id="nav-list-img"><a href="javascript:void (0)">插入图片</a></li>
         </ul>
     </nav>
 
-    <main class="" style="padding:40px 2px">
-        <div class="art-input">
+    <main class="flex-enable flex-one" style="padding:40px 2px">
+        <div class="main-input" id="art-input" style="max-width: 1000px">
             <p class="cms-title">插入文字</p>
             <form>
                 <textarea rows="30" cols="50" name="editor01"></textarea>
                 <script type="text/javascript">CKEDITOR.replace('editor01');</script>
-                <button type="submit" class="button">提交</button>
+                <label for="submit_editor" class="cms_label">提交</label>
+                <input type="submit" id="submit_editor"/>
             </form>
         </div>
-        <div class="img-input">
+        <div class="main-input" id="img-input" style="display: none ;max-width: 1000px">
             <p class="cms-title">插入图片</p>
-            <form>
-                <div id="upload-img"></div>
-                <button type="submit" class="button">提交</button>
+            <form action="" method="post" enctype="multipart/form-data">
+                <div id="upload-img">
+                    <img src="./img/camera.png" />
+                    <?php
+
+                    ?>
+
+                </div>
+                <label class="cms_label" for="upload_img_input" style="margin-bottom: 20px;">上传</label>
+                <input type="file" name="" id="upload_img_input" style="opacity: 0;display: none;" value="" />
+                <label for="submit_img_input" class="cms_label">提交</label>
+                <input type="submit" class="button" id="submit_img_input" style=""/>
             </form>
         </div>
     </main>
+
+    <!-- 插入文章和插入图片的切换 -->
+    <script>
+        var art=document.querySelector('#nav-list-art');
+        var img=document.querySelector('#nav-list-img');
+        var art_display=document.querySelector('#art-input');
+        var img_display=document.querySelector('#img-input');
+        art.onclick=function () {
+            img_display.style.display='none';
+            art_display.style.display='';
+        }
+        img.onclick=function () {
+            img_display.style.display='';
+            art_display.style.display='none';
+        }
+
+    </script>
+
     <!-- menu展开,缩放按钮脚本 -->
     <script>
-
         var btn = document.querySelector('.menu-btn-icon');
         var menu = document.querySelector('.nav-container-list');
         var menuIsCollapse = true;
-        btn.onclick = function () {
+        btn.onclick = function() {
             menuIsCollapse = !menuIsCollapse;
             if(menuIsCollapse){
                 menu.style.display='none';
