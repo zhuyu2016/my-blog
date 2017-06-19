@@ -8,6 +8,6 @@
 $conn = mysqli_connect("localhost","root","","test");
 if(!$conn)
 {
-    die('Could not connect:'. mysqli_error());
+    die('Could not connect:'.mysqli_error($conn));
 }
 $conn ->set_charset('utf-8');
