@@ -6,6 +6,7 @@
     <link href="style.css" type="text/css" rel="stylesheet"/>
     <link href="flexbox.css" type="text/css" rel="stylesheet" />
     <script rel="script" type="application/javascript" src="js/scrollFunc.js"></script>
+    <script src="./js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -21,67 +22,50 @@
             <li class="nav-list-item"><a href="./index.php">首页</a></li>
             <li class="nav-list-item"><a href="./article.php">文字</a></li>
             <li class="nav-list-item"><a href="./photography.php">相片</a></li>
-            <li class="nav-list-item"><a href="./cms.php">关于</a></li>
+            <li class="nav-list-item"><a href="./admin.php">关于</a></li>
         </ul>
     </nav>
     <header class="flex-enable">
         <p >相片</p>
     </header>
 
-    <!-- 点击图片放大 -->
-    <script>
-        function expandPhoto() {
-            var overlay = document.createElement("div");
-            overlay.setAttribute("id","overlay");    //用于标识覆盖层
-            overlay.setAttribute("class","overlay"); //用于添加覆盖层的样式
-            document.body.appendChild(overlay);
 
-            var img =document.createElement("img");
-            img.setAttribute("class","overlay-img");
-            img.src = this.getAttribute("src");
-            document.getElementById("overlay").appendChild(img);
-
-            img.onclick= restore;
-        }
-
-        function restore(){
-            document.body.removeChild(document.getElementById("overlay"));
-            document.body.removeChild(document.getElementById("img"));
-        }
-
-        window.onload = function(){
-            var imgs = document.getElementsByTagName("img");
-            imgs[0].focus();
-            for(var i = 0;i<imgs.length;i++){
-                imgs[i].onclick = expandPhoto;
-                imgs[i].onkeydown = expandPhoto;
-            }
-
-        }
-
-
-
-
-    </script>
-    
     <main class="flex-enable flex-justify-space-around flex-wrap">
-        <div class="main-photography">
-            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
-        </div>
-        <div class="main-photography">
-            <img src="./img/wallpaper.jpg" />
-        </div>
-        <div class="main-photography">
-            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
-        </div>
-        <div class="main-photography">
-            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
-        </div>
-        <div class="main-photography">
-            <img src="http://e.hiphotos.baidu.com/image/pic/item/77094b36acaf2edde7684cc38e1001e93901937a.jpg" />
-        </div>
+        <!-- 对数据表'img'里的所有图片遍历-->
+        <?php
+        include_once 'conn.php';
+        $query_sql="SELECT * FROM img ORDER BY img_id DESC";
+        $result=$conn->query($query_sql);
+        if(!$result) exit('查询数据错误：'.mysqli_error());
+
+        while ($gb_array=mysqli_fetch_array($result)){
+            $this_img=$gb_array['img_name'];
+            ?>
+            <div class="main-photography" style="background-image: url('./upload/<?=$gb_array['img_name']?>')"></div>
+            <?php
+        }
+
+        ?>
     </main>
 
+    <!-- 点击图片放大 -->
+    <script>
+        $(document).ready(function () {
+            $(".main-photography").click(function () {
+                var bg_src = $(this).css("background-image").split("\"")[1];
+                $("body").append('<div class="overlay"><table class="overlay_table"><tr><td><img class="overlay-img" src="" /></td></tr></table></div>');
+                $(".overlay-img").attr("src",bg_src);
+                overlay_remove();
+            });
+            function overlay_remove() {
+                $(".overlay").click(function(){
+                    $(this).remove();
+                    $(this>img).remove();
+                })
+            }
+
+        })
+    </script>
 
     <!-- menu展开,缩放按钮脚本 -->
     <script>
