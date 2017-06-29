@@ -164,6 +164,16 @@ main{
     text-align: center;
     font-size: 2em;
 }
+.main-input{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.cms-title{
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 2em;
+}
 
 #upload-img{
     width: 100%;

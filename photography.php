@@ -22,7 +22,11 @@
             <li class="nav-list-item"><a href="./index.php">首页</a></li>
             <li class="nav-list-item"><a href="./article.php">文字</a></li>
             <li class="nav-list-item"><a href="./photography.php">相片</a></li>
+<<<<<<< HEAD:photography.php
             <li class="nav-list-item"><a href="./admin.php">关于</a></li>
+=======
+            <li class="nav-list-item"><a href="./cms.php">关于</a></li>
+>>>>>>> origin/master:photography.php
         </ul>
     </nav>
     <header class="flex-enable">

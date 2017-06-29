@@ -7,8 +7,13 @@
     <link href="./flexbox.css" type="text/css" rel="stylesheet" />
     <!--<script rel="script" type="application/javascript" src="./js/errIEbrowser.js"></script>-->
     <script rel="script" type="application/javascript" src="./js/scrollFunc.js"></script>
+<<<<<<< HEAD
     <script src="js/jquery-3.2.1.js "></script>
     <script type="text/javascript" src="./ckEditor/ckeditor.js "></script>
+=======
+    <script rel="script" type="application/javascript" src="./js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+>>>>>>> origin/master
 
 </head>
 <body>
@@ -43,6 +48,7 @@
 
         <div class="main-input" id="img-input" style="display: none ;max-width: 1000px"><!--插入图片-->
             <p class="cms-title">插入图片</p>
+<<<<<<< HEAD
             <div id="upload-img">
                 <img id="upload-img-demo" src="./img/camera.png" />
             </div>
@@ -98,6 +104,52 @@
         }
     </script>
     
+=======
+                <div id="upload-img">
+                    <img id="upload-img-demo" src="./img/camera.png" />
+                </div>
+                <label  class="cms_label" for="previews_img_input"  style="margin-bottom: 20px;width: 50%;">选择</label>
+                <input type="file" name="img_file" id="previews_img_input" onchange="showPreview(this)" style="opacity: 0;"/>
+                <label  for="submit_img_input" class="cms_label" style="width: 50%;">提交</label>
+                <input type="submit" name="upload_button" class="button" id="submit_img_input" />
+        </div>
+    </main>
+
+
+    <!-- 上传图片及预览 -->
+    <script>
+
+        function showPreview(source) {
+            console.log(source);//就是这个input元素
+            var file = source.files[0];
+            if(window.FileReader){
+                var oFReader = new FileReader();
+                //如果要限定上传文件的类型，可以通过文件选择器获取文件对象并通过type属性来检查文件类型
+                var sReg = /^(?:image\/bmp|image\/cis\-cod|image\/gif|image\/ief|image\/jpeg|image\/jpeg|image\/jpeg|image\/pipeg|image\/png|image\/svg\+xml|image\/tiff|image\/x\-cmu\-raster|image\/x\-cmx|image\/x\-icon|image\/x\-portable\-anymap|image\/x\-portable\-bitmap|image\/x\-portable\-graymap|image\/x\-portable\-pixmap|image\/x\-rgb|image\/x\-xbitmap|image\/x\-xpixmap|image\/x\-xwindowdump)$/i;
+
+                if(!sReg.test(file.type)){
+                    alert("只允许上传图片文件");
+                }
+                oFReader.onloadend = function(e) {
+                    document.getElementById("upload-img-demo").src = e.target.result;
+                };
+
+                oFReader.readAsDataURL(file);
+            }
+        }
+        if(window.FileReader) {
+           // var fr = new FileReader();
+
+
+        }
+        else {
+            alert("Not supported by your browser!");
+        }
+    </script>
+
+
+
+>>>>>>> origin/master
     <!-- 插入文章和插入图片的切换 -->
     <script>
         var art=document.querySelector('#nav-list-art');

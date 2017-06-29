@@ -12,7 +12,10 @@ include 'conn.php';
     <link href="./style.css" type="text/css" rel="stylesheet"/>
     <link href="./flexbox.css" type="text/css" rel="stylesheet" />
     <!--<script rel="script" type="application/javascript" src="./js/errIEbrowser.js"></script>-->
+<<<<<<< HEAD:index.php
     <script src="http://lib.sinaapp.com/js/jquery/3.1.0/jquery-3.1.0.js "></script>
+=======
+>>>>>>> origin/master:index.php
     <script rel="script" type="application/javascript" src="./js/scrollFunc.js"></script>
     <style>
 
