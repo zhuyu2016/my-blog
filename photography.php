@@ -8,6 +8,7 @@
     <script rel="script" type="application/javascript" src="js/scrollFunc.js"></script>
     <script src="./js/jquery-3.1.1.min.js"></script>
 </head>
+</head>
 <body>
 <div class="wrapper">
     <nav>
@@ -20,13 +21,9 @@
 
         <ul class="nav-container-list ">
             <li class="nav-list-item"><a href="./index.php">首页</a></li>
-            <li class="nav-list-item"><a href="./article.php">文字</a></li>
+            <li class="nav-list-item"><a href="./article.php?page=1">文字</a></li>
             <li class="nav-list-item"><a href="./photography.php">相片</a></li>
-<<<<<<< HEAD:photography.php
             <li class="nav-list-item"><a href="./admin.php">关于</a></li>
-=======
-            <li class="nav-list-item"><a href="./cms.php">关于</a></li>
->>>>>>> origin/master:photography.php
         </ul>
     </nav>
     <header class="flex-enable">
@@ -35,21 +32,93 @@
 
 
     <main class="flex-enable flex-justify-space-around flex-wrap">
+
         <!-- 对数据表'img'里的所有图片遍历-->
         <?php
+
+        ///////////
+        //数据库连接
         include_once 'conn.php';
-        $query_sql="SELECT * FROM img ORDER BY img_id DESC";
-        $result=$conn->query($query_sql);
-        if(!$result) exit('查询数据错误：'.mysqli_error());
+        mysqli_query($conn,"set names 'utf8'");
+        ///////////
+        //假设取出list表中所有数据
+        $perNumber = 12; // 每页显示的记录数
+        $maxNumber = 3; // 当前页左右显示的页码数
+        @$page = $_GET ['page']; // 获得当前的页面值
+        $sql_count= "select count(*) from  img";
+        $count = mysqli_query($conn,$sql_count); // 获得记录总数
 
-        while ($gb_array=mysqli_fetch_array($result)){
-            $this_img=$gb_array['img_name'];
-            ?>
-            <div class="main-photography" style="background-image: url('./upload/<?=$gb_array['img_name']?>')"></div>
+        $result = mysqli_fetch_array($count);
+        $totalNumber = $result[0];
+        $totalPage = ceil($totalNumber/$perNumber); // 计算出总页数
+        if (!isset ($page)) {
+            $page = 1;
+        } // 如果没有值,则赋值1
+        $startCount = ($page - 1) * $perNumber; // 分页开始,根据此方法计算出开始的记录
+
+        // 根据前面的计算出开始的记录和记录数
+        $sqq="select * from img ORDER by img_id desc limit $startCount,$perNumber";
+        $res=mysqli_query($conn,$sqq);
+        $num=mysqli_num_rows($res);
+
+        if($num>0){
+            while ($gb_array=mysqli_fetch_array($res)){
+                ?>
+
+                <div class="main-photography" style="background-image: url('./upload/<?=$gb_array['img_name']?>')"></div>
+
+            <?php }}
+        else {?>
+            <p>暂无记录</p>
+        <?php } ?>
+
+
+        <!-- 页码显示 -->
+        <ul class="pagination">
             <?php
-        }
+            //上一页
+            if ($page != 1) {
+                $pageMinus = $page-1;
+                @ $pageShow.="<li><a href='article.php?page=$pageMinus'>«</a></li>";
+            }
 
-        ?>
+
+            //当前页左边
+            for($i=$maxNumber;$i>=1;$i--){
+                if(($page - $i) < 1 ) { // 当前页左边花最多 $maxNumber 个数字
+                    continue;
+                }
+                $lastPage=$page-$i;
+                $pageShow.="<li><a href='photography.php?page=$lastPage'>$lastPage</a></li>";
+
+            }
+            //当前页
+            $pageShow.="<li><a  href='photography.php?page=$page' style='color:black'>$page</a></li>";
+
+
+            //当前页右边
+            for($i=1;$i<=$maxNumber;$i++){
+                if(($page + $i) > $totalPage ) { // 当前页右边花最多 $maxNumber 个数字
+                    break;
+                }
+
+                $lastPage=$page+$i;
+                $pageShow.="<li><a href='photography.php?page=$lastPage'>$lastPage</a></li>";
+
+
+            }
+
+            //下一页
+            if ($page!=$totalPage) {
+                $pagePlus = $page+1;
+                $pageShow.="<li><a href='photography.php?page=$pagePlus'>»</a></li>";
+            }
+
+            echo $pageShow;
+            mysqli_close($conn);
+            ?>
+        </ul>
+
     </main>
 
     <!-- 点击图片放大 -->

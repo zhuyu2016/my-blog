@@ -35,6 +35,14 @@ nav {
 p{
     margin: 0;
 }
+.hr{
+
+    border: 0;
+    height: 0;
+    margin: 50px auto 50px auto;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
 .cms_label{
     outline: none;
     padding: 12px 0;
@@ -137,7 +145,7 @@ main{
     font-size: 2.0em;
     line-height: 2em;
 }
-.main-title{
+.main_title{
     text-align: left;
     font-size:1.8em;
     font-weight: 500;
@@ -159,22 +167,29 @@ main{
     margin: auto;
     text-align: center;
 }
+#art_title{
+    display: block;
+    width: 94%;
+    border: none;
+    color: #424242;
+    letter-spacing: 0.2em;
+    font-size: 1.3em;
+    margin: 0 25px;
+}
+#art_title{
+    display: block;
+    width: 90%;
+    border: none;
+    color: #424242;
+    letter-spacing: 0.2em;
+    font-size: 1em;
+    margin-left: 20px;
+}
 .cms-title{
     padding-bottom: 30px;
     text-align: center;
     font-size: 2em;
 }
-.main-input{
-    width: 100%;
-    margin: auto;
-    text-align: center;
-}
-.cms-title{
-    padding-bottom: 30px;
-    text-align: center;
-    font-size: 2em;
-}
-
 #upload-img{
     width: 100%;
     text-align: center;
@@ -229,23 +244,38 @@ footer p{
 
     font-size: 1.5em;
 }
-
+.pagination{
+    text-align: center;;
+}
+.pagination li{
+    display: inline;
+    text-align: center;
+    padding: 0 12px 0 12px;
+}
+.pagination a{
+    text-align: center;
+    font-size: 0.8em;
+    color: #999999;
+    font-weight: 400;
+}
 
 /* -------------------------------------------------------------------------------------------------------------*/
 
 
 
-/*宽度大于480px小于960px时 */
+/*宽度大于480px小于1024px时 */
 @media all and (min-width:480px) {
     html, body {
         margin: 0;
     }
+
     ul {
         margin: 0;
         padding: 0;
         width: 100%;
     }
-    li{
+
+    li {
         width: 20%;
     }
 
@@ -259,10 +289,11 @@ footer p{
         background: black;
         text-align: center;
     }
+
     /*  Header  */
-    header{
+    header {
         color: white;
-        min-height: 88vh;
+        min-height: 62vh;
         font-size: 9em;
         justify-content: center;
         align-items: center;
@@ -270,35 +301,62 @@ footer p{
         background-position: 50% 0;
         background-repeat: no-repeat;
     }
-    main{
+
+    main {
         font-size: 2.2em;
+        padding: 40px 10px;
     }
-    label{
+
+    label {
         display: inline-block;
         font-weight: 500;
     }
-    input{
+
+    input {
         display: none;
     }
-    .cms-title{
+
+    .cms-title {
         padding-bottom: 30px;
         text-align: center;
         font-size: 2em;
     }
-    main p{
+
+    main p {
         width: 50vw;
         margin: auto;
     }
-    .main-input{
+
+    .hr {
+        width: 50vw;
+        border: 0;
+        height: 0;
+        margin: 50px auto 50px auto;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .main-input {
         width: 90%;
         margin: auto;
     }
-
+    .main-photography {
+        width: 250px;
+        height: 250px;
+        margin: auto 10px;
+        margin-bottom: 40px;
+        background-color: blueviolet;
+        background-position: center;
+        background-size: cover;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
     .nav-container-list {
         max-width: 1280px;
         margin: 0 auto;
         display: inline-block;
     }
+
     .nav-list-item {
 
         display: inline-block;
@@ -307,49 +365,71 @@ footer p{
     .nav-list-item a {
         display: block;
         min-width: 48px;
-        margin:0;
+        margin: 0;
         padding: 19px 14px;
 
     }
-    .nav-list-item a:hover{
+
+    .nav-list-item a:hover {
         color: #D5D5D5;
     }
-    .menu-btn{
+
+    .menu-btn {
         display: none;
     }
-}
-.browser-all{
-    width: 80vw;
-    height: 50vh;
-    margin: auto;
-    background-color: yellow;
-}
-.browser-items{
-    width: 200px;
-    background-size: contain;
-    background-position: 50% 0;
-    background-repeat: no-repeat;
-}
-#chrome{
-    background-image: url("./img/chrome.png");
-}
-#firefox{
-    background-image: url("./img/firefox.png");
-}
-#opera{
-    background-image: url("./img/opera.png");
-}
-#ie{
-    background-image: url("./img/ie.png");
-}
-.overlay-img{
-    z-index: 40;
-    width: auto;
-    max-width: 70vw;
-    max-height: 92.5vh;
-}
 
+    .browser-all {
+        width: 80vw;
+        height: 50vh;
+        margin: auto;
+        background-color: yellow;
+    }
 
+    .browser-items {
+        width: 200px;
+        background-size: contain;
+        background-position: 50% 0;
+        background-repeat: no-repeat;
+    }
+
+    #chrome {
+        background-image: url("./img/chrome.png");
+    }
+
+    #firefox {
+        background-image: url("./img/firefox.png");
+    }
+
+    #opera {
+        background-image: url("./img/opera.png");
+    }
+
+    #ie {
+        background-image: url("./img/ie.png");
+    }
+
+    .overlay-img {
+        z-index: 40;
+        width: auto;
+        max-width: 70vw;
+        max-height: 92.5vh;
+    }
+
+    .pagination{
+        text-align: center;;
+    }
+    .pagination li{
+        display: inline;
+        text-align: center;
+        padding: 0 15px 0 15px;
+    }
+    .pagination a{
+        text-align: center;
+        font-size: 0.8em;
+        color: #999999;
+        font-weight: 400;
+    }
+}
 /* -------------------------------------------------------------------------------------------------------------*/
 
 
@@ -388,21 +468,30 @@ footer p{
     /*  Header  */
     header{
         color: white;
-        min-height: 88vh;
         font-size: 9em;
         justify-content: center;
         align-items: center;
         background: url("./img/wallpaper.jpg");
         background-position: 50% 0;
         background-repeat: no-repeat;
+        min-height: 62vh;
     }
     main{
         font-size: 2.6em;
+        padding: 40px 80px;
     }
 
     main p{
         width: 50vw;
         margin: auto;
+    }
+    .hr{
+        width: 50vw;
+        border: 0;
+        height: 0;
+        margin: 50px auto 50px auto;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
     .main-input{
         width: 80%;
@@ -438,5 +527,20 @@ footer p{
         width: auto;
         max-width: 70vw;
         max-height: 80vh;
+    }
+    .pagination{
+        text-align: center;;
+    }
+    .pagination li{
+        display: inline;
+        text-align: center;
+        padding: 0 18px 0 18px;
+
+    }
+    .pagination a{
+        text-align: center;
+        font-size: 0.8em;
+        color: #999999;
+        font-weight: 400;
     }
 }
